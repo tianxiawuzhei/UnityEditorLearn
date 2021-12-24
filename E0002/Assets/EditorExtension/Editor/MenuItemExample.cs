@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace EidtorExtension
 {
-    public class MenuItemExample : MonoBehaviour
+    public static class MenuItemExample
     {
         // Add a menu item named "Do Something" to MyMenu in the menu bar.
         [MenuItem("EditorExtension/01.Example/01.Hello World")]
@@ -37,13 +37,19 @@ namespace EidtorExtension
         [MenuItem("EditorExtension/01.Example/05. Hello Editor Shortcur _c")]
         static void HelloEditorWithShortcut()
         {
-            Debug.Log("Hello Editor Shortcur...");
+            EditorApplication.ExecuteMenuItem("EditorExtension/01.Example/01.Hello World");
         }
         
         [MenuItem("EditorExtension/01.Example/05. Hello Editor Shortcur _c", validate = true)]
         static bool HelloEditorWithShortcutValidate()
         {
+            
             return _shortCutSelected;
+        }
+
+        static MenuItemExample()
+        {
+            Menu.SetChecked("EditorExtension/01.Example/04. Toggle Shortcut", _shortCutSelected);
         }
     }
 }
