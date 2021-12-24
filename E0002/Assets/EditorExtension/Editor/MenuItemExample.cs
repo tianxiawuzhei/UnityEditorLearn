@@ -39,5 +39,11 @@ namespace EidtorExtension
         {
             Debug.Log("Hello Editor Shortcur...");
         }
+        
+        [MenuItem("EditorExtension/01.Example/05. Hello Editor Shortcur _c", validate = true)]
+        static bool HelloEditorWithShortcutValidate()
+        {
+            return _shortCutSelected;
+        }
     }
 }
