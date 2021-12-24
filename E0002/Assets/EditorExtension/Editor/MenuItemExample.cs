@@ -33,5 +33,11 @@ namespace EidtorExtension
             _shortCutSelected = !_shortCutSelected;
             Menu.SetChecked("EditorExtension/01.Example/04. Toggle Shortcut", _shortCutSelected);
         }
+
+        [MenuItem("EditorExtension/01.Example/05. Hello Editor Shortcur _c")]
+        static void HelloEditorWithShortcut()
+        {
+            Debug.Log("Hello Editor Shortcur...");
+        }
     }
 }
