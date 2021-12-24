@@ -25,5 +25,13 @@ namespace EidtorExtension
         {
             EditorUtility.RevealInFinder(Application.dataPath.Replace("Assets", "Library"));
         }
+
+        private static bool _shortCutSelected = false;
+        [MenuItem("EditorExtension/01.Example/04. Toggle Shortcut")]
+        static void ToggleShortcut()
+        {
+            _shortCutSelected = !_shortCutSelected;
+            Menu.SetChecked("EditorExtension/01.Example/04. Toggle Shortcut", _shortCutSelected);
+        }
     }
 }
