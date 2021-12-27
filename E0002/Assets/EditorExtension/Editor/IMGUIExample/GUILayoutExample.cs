@@ -12,11 +12,35 @@ namespace EidtorExtension
             GetWindow<GUILayoutExample>().Show();
         }
 
+        enum PageId
+        {
+            Basic,
+            Other
+            
+        }
+
+        private int _curPageIdx;
         private string _strTextField = "";
         private string _strTextArea = "";
         private int toolbarInt = 0;
         string[] toolbarStrings = {"Toolbar1", "Toolbar2", "Toolbar3"};
         private void OnGUI()
+        {
+            _curPageIdx = GUILayout.Toolbar(_curPageIdx, Enum.GetNames(typeof(PageId)));
+            if (_curPageIdx == (int)PageId.Basic)
+            {
+                Basic();
+            }
+            else
+            {
+                
+            }
+            
+
+        }
+
+        #region Basic
+        private void Basic()
         {
             GUILayout.BeginVertical("box");
             {
@@ -64,7 +88,10 @@ namespace EidtorExtension
                 toolbarInt = GUILayout.Toolbar(toolbarInt, toolbarStrings);
             }
             GUILayout.EndVertical();
-
         }
+        #endregion
+        
+        
+       
     }
 }
